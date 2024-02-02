@@ -133,13 +133,23 @@ const Projects = () => {
                 <h4>{project.title}</h4>
                 <span className="flex gap-2 items-center">
                   SEE LIVE 
-                  <a href={project.liveUrlLink} target="_blank" rel="noopener noreferrer" className="bg-black text-white py-2 px-4 rounded-full">
+                  <a 
+                    href={project.liveUrlLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105"
+                  >
                     CLICK HERE
                   </a> 
                 </span>
                 <span className="flex gap-2 items-center">
                   SOURCE CODE 
-                  <a href={project.sourceCodeLink} target="_blank" rel="noopener noreferrer" className="bg-black text-white py-2 px-4 rounded-full">
+                  <a 
+                    href={project.sourceCodeLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105"
+                  >
                     CLICK HERE
                   </a>
                 </span>
