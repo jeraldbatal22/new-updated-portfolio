@@ -9,10 +9,10 @@ const MainFooter = () => {
         <div className='flex flex-col items-center justify-center '>
           <label className="text-[26px]">Socail Media Platform</label>
           <div className='flex gap-5 text-[50px]'>
-            <a href="https://www.facebook.com/jeraldbatal22"><i className="fab fa-facebook"></i></a>
-            <a href="https://www.linkedin.com/in/jeraldbatal/"><i className="fab fa-linkedin"></i></a>
-            <a href="https://www.instagram.com/jeraldbatal22/"><i className="fab fa-instagram"></i></a>
-            <a href="https://github.com/jeraldbatal22"><i className="fab fa-github"></i></a>
+            <a href="https://www.facebook.com/jeraldbatal22" target="_blank" rel="noopener noreferrer" ><i className="fab fa-facebook"></i></a>
+            <a href="https://www.linkedin.com/in/jerald-batal/" target="_blank" rel="noopener noreferrer" ><i className="fab fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/jeraldbatal22/" target="_blank" rel="noopener noreferrer" ><i className="fab fa-instagram"></i></a>
+            <a href="https://github.com/jeraldbatal22" target="_blank" rel="noopener noreferrer" ><i className="fab fa-github"></i></a>
 
           </div>
         </div>

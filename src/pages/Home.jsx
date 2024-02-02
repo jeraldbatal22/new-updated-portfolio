@@ -10,7 +10,7 @@ const Home = () => {
     <React.Fragment>
       <MainLayout>
         <Hero/>
-        <div className='container mx-auto px-8'>
+        <div className='container mx-auto'>
           <AboutMe/>
           <SKills/>
           <Projects/>

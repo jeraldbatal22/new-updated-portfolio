@@ -12,8 +12,8 @@ const MainHeader = () => {
 
 
   return (
-    <div className="bg-[linear-gradient(rgba(0,0,0,.9),#000)] bg-red-500">
-      <div className="py-6 px-12 md:px-10 lg:px-48 fixed top-0 right-0 left-0 flex items-center justify-between bg-[linear-gradient(rgba(0,0,0,.9),#000)]">
+    <div className="bg-[linear-gradient(rgba(0,0,0,.9),#000)] bg-red-500 ">
+      <div className="py-6 px-12 md:px-10 lg:px-48 fixed top-0 right-0 left-0 z-10 flex items-center justify-between bg-[linear-gradient(rgba(0,0,0,.9),#000)]">
         <h1 className="text-white text-[10px] sm:text-[16px] md:text-[32px]">JeraldDev.</h1>
         <ul className={`
           ${isShowNavItems ? "flex items-center justify-center fixed top-0 right-0 left-0 py-10 bg-white gap-6" : "hidden"} 

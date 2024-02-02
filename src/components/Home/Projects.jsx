@@ -1,33 +1,101 @@
+import { useState } from "react";
+
+
+const projects = [
+  {
+    title: "Tribute Page",
+    image: "/images/projects/tribute.png",
+    liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/tribute_page/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/tribute_page",
+    stack: "Html and CSS"
+  },
+  {
+    title: "Survey Form",
+    image: "/images/projects/survey.PNG",
+    liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/survey_form/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/survey_form",
+    stack: "Html and CSS"
+  },
+  {
+    title: "Landing Page",
+    image: "/images/projects/landing.PNG",
+    liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/landing_page/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/landing_page",
+    stack: "Html, CSS and Javascript"
+  },
+  {
+    title: "Momentum App",
+    image: "/images/projects/momentum.PNG",
+    liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/momentum_app/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/momentum_app",
+    stack: "Html, CSS and Javascript"
+  },
+  {
+    title: "Tic Tac Toe App",
+    image: "/images/projects/tictactoe.PNG",
+    liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/tic_tac_toe",
+    sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/tic_tac_toe",
+    stack: "Html, CSS and Javascript"
+  },
+  {
+    title: "Banking Budge App",
+    image: "/images/projects/bank.PNG",
+    liveUrlLink: "https://banking-budget-app.herokuapp.com/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/banking_budget_app",
+    stack: "React JS"
+  },
+  {
+    title: "Slack App Clone",
+    image: "/images/projects/slack.PNG",
+    liveUrlLink: "https://slack-app-cl0ne.netlify.app/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/slack-app-clone",
+    stack: "React JS"
+  },
+  {
+    title: "Tournament CRUD Api",
+    image: "/images/projects/tournament.PNG",
+    liveUrlLink: "https://t0urnament-app.netlify.app/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/tournament_api",
+    stack: "React JS"
+  },
+  {
+    title: "Qoutes App",
+    image: "/images/projects/qoutes.PNG",
+    liveUrlLink: "https://my-qoutes-app.herokuapp.com/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/qoutes_app",
+    stack: "Ruby on Rails"
+  },
+  {
+    title: "Journal Task App",
+    image: "/images/projects/journal.PNG",
+    liveUrlLink: "https://journal-task-app.herokuapp.com/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/journal_task_app",
+    stack: "Ruby on Rails"
+  },
+  {
+    title: "Stock On You",
+    image: "/images/projects/stock.PNG",
+    liveUrlLink: "https://stock-on-you.herokuapp.com/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/stock-on-you",
+    stack: "Ruby on Rails"
+  },
+  {
+    title: "Go Learning Academy",
+    image: "/images/projects/golearning.PNG",
+    liveUrlLink: "https://go-learning-academy-io.herokuapp.com/",
+    sourceCodeLink: "https://github.com/Stephdajon/rails-base-project",
+    stack: "Ruby on Rails"
+  },
+]
+
 const Projects = () => {
 
-  const projects = [
-    {
-      title: "Tribute Page",
-      image: "/images/hero-background.jpg",
-      urlLink: "https://jeraldbatal22.github.io/batch9-activities/tribute_page/",
-      sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/survey_for"
-    },
-    {
-      title: "Tribute Page",
-      image: "/images/hero-background.jpg",
-      urlLink: "https://jeraldbatal22.github.io/batch9-activities/tribute_page/",
-      sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/survey_for"
-    },
-    {
-      title: "Tribute Page",
-      image: "/images/hero-background.jpg",
-      liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/tribute_page/",
-      sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/survey_form"
-    },
-    {
-      title: "Tribute Page",
-      image: "/images/hero-background.jpg",
-      liveUrlLink: "https://jeraldbatal22.github.io/batch9-activities/tribute_page/",
-      sourceCodeLink: "https://github.com/jeraldbatal22/batch9-activities/tree/main/survey_form"
-    },
-  ]
+
+  const [isHovered, setHovered] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
-    <div className="h-screen py-32" id="projects">
+    <div className="py-32" id="projects">
       <div className="flex flex-col gap-2 mb-10">
         <h1 className="text-[30px]">Projects</h1>
         <p>This is all my project that I made when I was start learning to code.</p>
@@ -37,11 +105,45 @@ const Projects = () => {
           projects.map((project, key) => {
             return(
               <div className="flex flex-col gap-3" key={key}>
-                <a href="https://jeraldbatal22.github.io/batch9-activities/tribute_page/" data-title="Click to see live Tribute Page"><img src={"/images/hero-background.jpg"} alt="" height="240" width="400" /></a>
+                <a 
+                  onMouseEnter={() => {
+                    console.log(project.liveUrlLink)
+                    setHovered(true)
+                    setSelectedProject(project);
+                    }
+                  }
+                  onMouseLeave={() => {
+                      setHovered(false)
+                      setSelectedProject(null);
+                    }
+                  }
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  href={project.liveUrlLink} 
+                  className="relative transition-transform duration-500 ease-in hover:transform hover:scale-110"
+                >
+                  <img src={project.image} alt="" height="240" width="400" />
+                  { 
+                    isHovered && selectedProject.title === project.title && 
+                    <span className="absolute left-0 text-white p-3 flex justify-center bottom-0 bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,1))]">
+                      Click to see live {project.title}
+                    </span> 
+                  } 
+                </a>
                 <h4>{project.title}</h4>
-                <p>SEE LIVE <a href={project.liveUrlLink}>CLICK HERE</a> </p>
-                <p>SOURCE CODE <a href={project.sourceCodeLink}>CLICK HERE</a></p>
-                <span>HTML and CSS</span>
+                <span className="flex gap-2 items-center">
+                  SEE LIVE 
+                  <a href={project.liveUrlLink} target="_blank" rel="noopener noreferrer" className="bg-black text-white py-2 px-4 rounded-full">
+                    CLICK HERE
+                  </a> 
+                </span>
+                <span className="flex gap-2 items-center">
+                  SOURCE CODE 
+                  <a href={project.sourceCodeLink} target="_blank" rel="noopener noreferrer" className="bg-black text-white py-2 px-4 rounded-full">
+                    CLICK HERE
+                  </a>
+                </span>
+                <span>{project.stack}</span>
               </div>
             )
           })
