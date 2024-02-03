@@ -1,4 +1,4 @@
-# React + Vite
+# React + Vite + Tailwind CSS  
 
 <a href="https://jeraldbatal.vercel.app/" target="_blank">https://jeraldbatal.vercel.app/</a>
 
