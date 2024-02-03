@@ -2,10 +2,6 @@
 
 <a href="https://jeraldbatal.vercel.app/" target="_blank">https://jeraldbatal.vercel.app/</a>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
 ![image](https://github.com/jeraldbatal22/new-updated-portfolio/assets/80327905/bb02a9f5-027b-4193-b683-043025e86323)
 
 ![image](https://github.com/jeraldbatal22/new-updated-portfolio/assets/80327905/e402fab1-bb09-4c5b-99c7-b95c3055cb32)
