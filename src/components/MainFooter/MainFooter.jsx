@@ -21,7 +21,7 @@ const MainFooter = () => {
           <div className="flex flex-col gap-5">
             <div className='flex flex-col gap-3'>
               <label>Email</label>
-              <input className="p-3 rounded-md" type="text" value="jbjrld22@gmail.com" disabled />
+              <input className="p-3 rounded-md" type="text" value="btljrld22@gmail.com" disabled />
             </div>
             <div className='flex flex-col gap-3'>
               <label>Message</label>
