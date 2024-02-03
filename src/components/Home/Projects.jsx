@@ -59,6 +59,13 @@ const projects = [
     stack: "React JS"
   },
   {
+    title: "E commerce",
+    image: "/images/projects/ecommerce.PNG",
+    liveUrlLink: "https://e-commerce-io.netlify.app/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/e-commerce",
+    stack: "React JS"
+  },
+  {
     title: "Qoutes App",
     image: "/images/projects/qoutes.PNG",
     liveUrlLink: "https://my-qoutes-app.herokuapp.com/",
