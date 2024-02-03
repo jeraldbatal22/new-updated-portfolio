@@ -95,12 +95,12 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div className="py-32" id="projects">
+    <div className="py-32 px-16" id="projects">
       <div className="flex flex-col gap-2 mb-10">
         <h1 className="text-[30px]">Projects</h1>
         <p>This is all my project that I made when I was start learning to code.</p>
       </div>
-      <div className="grid grid-cols-3 gap-y-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
         {
           projects.map((project, key) => {
             return(
