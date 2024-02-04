@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose  } from "react-icons/io";
 import { Link } from "react-scroll";
-
 
 const navItems = [
   {
@@ -32,38 +31,30 @@ const MainHeader = () => {
   const [selectedItem, setSelectedItem] = useState(navItems[0]);
   // const [scrollPosition, setScrollPosition] = useState(0);
 
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     // setScrollPosition(window.scrollY);
-  //     console.log(window.scrollY)
+  const handleScroll = () => {
+    const scrollY = window.scrollY;
 
-  //     if (window.scrollY < 821) {
-  //       console.log('first')
-  //       setSelectedItem(navItems[0])
-  //     } else if (window.scrollY < 2456) {
-  //       console.log('first')
-  //       setSelectedItem(navItems[1])
-  //     } else if (window.scrollY < 3783) {
-  //       setSelectedItem(navItems[2])
-  //     } else if (window.scrollY > 3783) {
-  //       setSelectedItem(navItems[3])
-  //     }  else if (window.scrollY < 9422) {
-  //       console.log(window.scrollY, 'first')
-  //       setSelectedItem(navItems[4])
-  //     } else {
-  //       console.log('first')
-  //     }
-      
-  //   };
+    // Retrieve the scroll positions from the DOM based on div IDs
+    const sectionIds = ['hero', 'about', 'skills', 'projects', 'footer'];
+    const sectionScrollPositions = sectionIds.map(id => document.getElementById(id)?.offsetTop || 0);
+    // Find the index of the current section based on scroll position
+    const currentSectionIndex = sectionScrollPositions.findIndex((position, index, array) => {
+      const nextPosition = array[index + 1] || Infinity;
+      return scrollY >= position && scrollY < nextPosition;
+    });
+    // Set the selected item based on the current section index
+    setSelectedItem(navItems[currentSectionIndex]);
+  };
 
-  //   // Add scroll event listener when component mounts
-  //   window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    // Add scroll event listener when component mounts
+    window.addEventListener('scroll', handleScroll);
 
-  //   // Remove scroll event listener when component unmounts
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []); 
+    // Remove scroll event listener when component unmounts
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []); // Empty dependency array means this effect runs once when the component mounts
 
   return (
     <div className="bg-[linear-gradient(rgba(0,0,0,.9),#000)] bg-red-500 ">
@@ -102,7 +93,6 @@ const MainHeader = () => {
           onClick={() => setIsShowItems(true)}
           className={`${isShowNavItems ? "hidden" : "flex"} cursor-pointer z-10 md:hidden text-white`}
         />
-        {/* <IoMdClose onClick={() => setIsShowItems(false)} className={`${isShowNavItems ? "flex text-black" : "hidden"} cursor-pointer z-10 md:hidden text-white`}/> */}
       </div>
     </div>
   )

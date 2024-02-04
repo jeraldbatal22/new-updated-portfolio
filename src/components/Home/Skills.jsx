@@ -106,7 +106,7 @@ const exposures = [
 const SKills = () => {
   return (
     <div className="py-32 px-16 flex flex-col gap-12 justify-between" id="skills">
-      <h1 className="text-[30px]">Skills</h1>
+      <h1 className="text-[30px] text-blue-500">Skills</h1>
       <div className="flex flex-col gap-10">
         <h1 className="text-[30px] text-center text-blue-500 tracking-widest">Proficient</h1>
         <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 m-auto gap-10">
