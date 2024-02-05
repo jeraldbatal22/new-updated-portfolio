@@ -1,10 +1,14 @@
+import { useFadeScroll } from "../../hooks/useFadeScroll";
+
 const MainFooter = () => {
   const sendMessageHandler = () => {
     alert('This feature is not yet available!')
   }
 
+  const fadeScroll = useFadeScroll("footer");
+
   return (
-    <div className="py-12 px-16 md:px-10 lg:px-48 bg-[linear-gradient(rgba(0,0,0,.9),#000)] " id="footer">
+    <div className={`py-12 px-16 md:px-10 lg:px-48 bg-[linear-gradient(rgba(0,0,0,.9),#000)] translate-y- ${fadeScroll()}`} id="footer">
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 text-white'>
         <div className='flex flex-col items-center justify-center '>
           <label className="text-[26px]">Socail Media Platform</label>

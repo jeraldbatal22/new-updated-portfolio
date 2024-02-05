@@ -1,6 +1,12 @@
+// import { useEffect, useState } from "react";
+import { useFadeScroll } from "../../hooks/useFadeScroll";
+
 const AboutMe = () => {
+
+  const fadeScroll = useFadeScroll("about");
+
   return (
-    <div className="h-auto py-32 flex flex-col gap-3 px-16" id="about">
+    <div className={`h-auto py-32 flex flex-col gap-3 px-16 ${fadeScroll()}`} id="about">
       <h1 className="text-[30px] text-blue-500">About Me</h1>
       <div className="flex flex-col items-center gap-10 lg:flex-row">
         <div className="w-[auto] md:w-[550px]">

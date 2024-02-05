@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoMdClose  } from "react-icons/io";
 import { Link } from "react-scroll";
@@ -28,33 +28,33 @@ const navItems = [
 
 const MainHeader = () => {
   const [isShowNavItems, setIsShowItems] = useState(false);
-  const [selectedItem, setSelectedItem] = useState(navItems[0]);
-  // const [scrollPosition, setScrollPosition] = useState(0);
+  // const [selectedItem, setSelectedItem] = useState(navItems[0]);
 
-  const handleScroll = () => {
-    const scrollY = window.scrollY;
+  // const handleScroll = () => {
+  //   const scrollY = window.scrollY;
 
-    // Retrieve the scroll positions from the DOM based on div IDs
-    const sectionIds = ['hero', 'about', 'skills', 'projects', 'footer'];
-    const sectionScrollPositions = sectionIds.map(id => document.getElementById(id)?.offsetTop || 0);
-    // Find the index of the current section based on scroll position
-    const currentSectionIndex = sectionScrollPositions.findIndex((position, index, array) => {
-      const nextPosition = array[index + 1] || Infinity;
-      return scrollY >= position && scrollY < nextPosition;
-    });
-    // Set the selected item based on the current section index
-    setSelectedItem(navItems[currentSectionIndex]);
-  };
+  //   // Retrieve the scroll positions from the DOM based on div IDs
+  //   const sectionIds = ['hero', 'about', 'skills', 'projects', 'footer'];
+  //   const sectionScrollPositions = sectionIds.map(id => document.getElementById(id)?.offsetTop || 0);
+  //   // Find the index of the current section based on scroll position
+  //   const currentSectionIndex = sectionScrollPositions.findIndex((position, index, array) => {
+  //     const nextPosition = array[index + 1] || Infinity;
+  //     return scrollY >= position && scrollY < nextPosition;
+  //     // return scrollY > nextPosition - window.innerHeight + 100
+  //   });
+  //   // Set the selected item based on the current section index
+  //   setSelectedItem(navItems[currentSectionIndex]);
+  // };
 
-  useEffect(() => {
-    // Add scroll event listener when component mounts
-    window.addEventListener('scroll', handleScroll);
+  // useEffect(() => {
+  //   // Add scroll event listener when component mounts
+  //   window.addEventListener('scroll', handleScroll);
 
-    // Remove scroll event listener when component unmounts
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []); // Empty dependency array means this effect runs once when the component mounts
+  //   // Remove scroll event listener when component unmounts
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []); // Empty dependency array means this effect runs once when the component mounts
 
   return (
     <div className="bg-[linear-gradient(rgba(0,0,0,.9),#000)] bg-red-500 ">
@@ -69,14 +69,15 @@ const MainHeader = () => {
           {navItems.map((nav, key) => (
             <li
               key={key}
-              className={`cursor-pointer text-[10px] sm:text-[16px] md:text-[20px] ${selectedItem.to === nav.to && "border-b-2 border-blue-500"}`}
+              // className={`cursor-pointer text-[10px] sm:text-[16px] md:text-[20px] ${selectedItem.to === nav.to && "border-b-2 border-blue-500"}`}
+              className={`cursor-pointer text-[10px] sm:text-[16px] md:text-[20px] hover:text-blue-500`}
             >
               <Link
                 to={nav.to}
-                onClick={() => {
-                  setSelectedItem(nav);
-                  setIsShowItems(false); // Close the menu on item click
-                }}
+                // onClick={() => {
+                //   setSelectedItem(nav);
+                //   setIsShowItems(false); // Close the menu on item click
+                // }}
                 smooth={true}
                 duration={1000}
               >

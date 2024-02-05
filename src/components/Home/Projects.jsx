@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useFadeScroll } from "../../hooks/useFadeScroll";
 
 
 const projects = [
@@ -97,12 +98,13 @@ const projects = [
 
 const Projects = () => {
 
+  const fadeScroll = useFadeScroll("projects");
 
   const [isHovered, setHovered] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div className="py-32 px-16" id="projects">
+    <div className={`py-32 px-16 ${fadeScroll()}`} id="projects">
       <div className="flex flex-col gap-2 mb-10">
         <h1 className="text-[30px] text-blue-500">Projects</h1>
         <p>This is all my project that I made when I was start learning to code.</p>

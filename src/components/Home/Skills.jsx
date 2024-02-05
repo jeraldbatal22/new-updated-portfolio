@@ -1,5 +1,6 @@
 // import Tooltip from "../UI/Tooltip"
 
+import { useFadeScroll } from "../../hooks/useFadeScroll";
 import Tooltip from "../UI/Tooltip"
 
 const profecients = [
@@ -104,8 +105,11 @@ const exposures = [
 ]
 
 const SKills = () => {
+
+  const fadeScroll = useFadeScroll("skills");
+  
   return (
-    <div className="py-32 px-16 flex flex-col gap-12 justify-between" id="skills">
+    <div className={`py-32 px-16 flex flex-col gap-12 justify-between ${fadeScroll()}`} id="skills">
       <h1 className="text-[30px] text-blue-500">Skills</h1>
       <div className="flex flex-col gap-10">
         <h1 className="text-[30px] text-center text-blue-500 tracking-widest">Proficient</h1>
