@@ -177,7 +177,7 @@ const Projects = () => {
                     }}
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105"
+                    className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105 cursor-pointer"
                   >
                     CLICK HERE
                   </a> 
