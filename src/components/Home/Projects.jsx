@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useFadeScroll } from "../../hooks/useFadeScroll";
 
-
 const projects = [
   {
     title: "Tribute Page",
@@ -39,16 +38,38 @@ const projects = [
     stack: "Html, CSS and Javascript"
   },
   {
+    title: "Netflix Clone",
+    image: "/images/projects/netflix-clone.png",
+    liveUrlLink: "https://netflix-clone-ui-eta.vercel.app/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/facebook-clone-app",
+    stack: "React JS"
+  },
+  // {
+  //   title: "Facebook Clone",
+  //   image: "/images/projects/facebook-clone.png",
+  //   liveUrlLink: "https://netflix-clone-ui-eta.vercel.app/",
+  //   sourceCodeLink: "https://github.com/jeraldbatal22/netflix-clone-ui",
+  //   stack: "React JS"
+  // },
+  // {
+  //   title: "Messenger Clone",
+  //   image: "/images/projects/messenger-clone.png",
+  //   liveUrlLink: "https://netflix-clone-ui-eta.vercel.app/",
+  //   sourceCodeLink: "https://github.com/jeraldbatal22/messenger_app_clone",
+  //   stack: "React JS"
+  // },
+  {
     title: "Banking Budge App",
     image: "/images/projects/bank.PNG",
-    liveUrlLink: "https://banking-budget-app.herokuapp.com/",
+    liveUrlLink: "https://banking-budget-app.vercel.app/",
     sourceCodeLink: "https://github.com/jeraldbatal22/banking_budget_app",
     stack: "React JS"
   },
   {
     title: "Slack App Clone",
     image: "/images/projects/slack.PNG",
-    liveUrlLink: "https://slack-app-cl0ne.netlify.app/",
+    // liveUrlLink: "https://slack-app-cl0ne.netlify.app/",
+    liveUrlLink: "",
     sourceCodeLink: "https://github.com/jeraldbatal22/slack-app-clone",
     stack: "React JS"
   },
@@ -69,28 +90,32 @@ const projects = [
   {
     title: "Qoutes App",
     image: "/images/projects/qoutes.PNG",
-    liveUrlLink: "https://my-qoutes-app.herokuapp.com/",
+    // liveUrlLink: "https://my-qoutes-app.herokuapp.com/",
+    liveUrlLink: "",
     sourceCodeLink: "https://github.com/jeraldbatal22/qoutes_app",
     stack: "Ruby on Rails"
   },
   {
     title: "Journal Task App",
     image: "/images/projects/journal.PNG",
-    liveUrlLink: "https://journal-task-app.herokuapp.com/",
+    // liveUrlLink: "https://journal-task-app.herokuapp.com/",
+    liveUrlLink: "",
     sourceCodeLink: "https://github.com/jeraldbatal22/journal_task_app",
     stack: "Ruby on Rails"
   },
   {
     title: "Stock On You",
     image: "/images/projects/stock.PNG",
-    liveUrlLink: "https://stock-on-you.herokuapp.com/",
+    // liveUrlLink: "https://stock-on-you.herokuapp.com/",
+    liveUrlLink: "",
     sourceCodeLink: "https://github.com/jeraldbatal22/stock-on-you",
     stack: "Ruby on Rails"
   },
   {
     title: "Go Learning Academy",
     image: "/images/projects/golearning.PNG",
-    liveUrlLink: "https://go-learning-academy-io.herokuapp.com/",
+    // liveUrlLink: "https://go-learning-academy-io.herokuapp.com/",
+    liveUrlLink: "",
     sourceCodeLink: "https://github.com/Stephdajon/rails-base-project",
     stack: "Ruby on Rails"
   },
@@ -142,7 +167,14 @@ const Projects = () => {
                 <span className="flex gap-2 items-center">
                   SEE LIVE 
                   <a 
-                    href={project.liveUrlLink} 
+                    // href={project.liveUrlLink} 
+                    onClick={() => {
+                      if (!project.liveUrlLink ) {
+                        alert('Live url is not available!')
+                      } else {
+                        window.location.href = project.liveUrlLink
+                      }
+                    }}
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105"
