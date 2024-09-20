@@ -30,7 +30,7 @@ const Hero = () => {
   }, [])
 
   return (
-    <div className="p-10 flex items-center justify-center h-screen bg-[url(/images/hero-background.jpg)]" id="hero">
+    <div className="p-10 flex items-center justify-center h-screen bg-[url(/images/hero-background.jpg)] object-cover bg-no-repeat bg-cover" id="hero">
       <animated.div style={props}>
         <h1 className=" text-white text-[50px] md:text-[70px]">
           {"I'm"} <span id="typewriter"></span>

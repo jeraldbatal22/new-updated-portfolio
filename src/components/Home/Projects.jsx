@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { useFadeScroll } from "../../hooks/useFadeScroll";
+// import { useFadeScroll } from "../../hooks/useFadeScroll";
+import TextAnimation from "../Common/TextAnimation";
 
 const projects = [
   {
@@ -123,83 +124,91 @@ const projects = [
 
 const Projects = () => {
 
-  const fadeScroll = useFadeScroll("projects");
-
   const [isHovered, setHovered] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <div className={`py-32 px-16 ${fadeScroll()}`} id="projects">
-      <div className="flex flex-col gap-2 mb-10">
-        <h1 className="text-[30px] text-blue-500">Projects</h1>
-        <p>This is all my project that I made when I was start learning to code.</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
-        {
-          projects.map((project, key) => {
-            return(
-              <div className="flex flex-col gap-3" key={key}>
-                <a 
-                  onMouseEnter={() => {
-                    setHovered(true)
-                    setSelectedProject(project);
-                    }
-                  }
-                  onMouseLeave={() => {
-                      setHovered(false)
-                      setSelectedProject(null);
-                    }
-                  }
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  href={project.liveUrlLink} 
-                  className="relative transition-transform duration-500 ease-in hover:transform hover:scale-110"
-                >
-                  <img src={project.image} alt="" height="240" width="400" />
-                  { 
-                    isHovered && selectedProject.title === project.title && 
-                    <span className="absolute left-0 text-white p-3 flex justify-center bottom-0 bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,1))]">
-                      Click to see live {project.title}
-                    </span> 
-                  } 
-                </a>
-                <h4>{project.title}</h4>
-                <span className="flex gap-2 items-center">
-                  SEE LIVE 
+    <TextAnimation>
+      <div className={`flex flex-col px-16`} id="projects">
+        <div className="flex flex-col gap-2 mb-10">
+          <h1 className="text-[30px] text-blue-500">Projects</h1>
+          <p>This is all my project that I made when I was start learning to code.</p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
+          {
+            projects.map((project, key) => {
+              return(
+                <div className="flex flex-col gap-3" key={key}>
                   <a 
-                    // href={project.liveUrlLink} 
-                    onClick={() => {
+                    onMouseEnter={() => {
+                      setHovered(true)
+                      setSelectedProject(project);
+                      }
+                    }
+                    onMouseLeave={() => {
+                        setHovered(false)
+                        setSelectedProject(null);
+                      }
+                    }
+                    onClick={(event) => {
+                      event.preventDefault(); // Prevent the default anchor behavior
                       if (!project.liveUrlLink ) {
                         alert('Live url is not available!')
                       } else {
-                        window.location.href = project.liveUrlLink
+                        window.open(project.liveUrlLink, "blank")
                       }
                     }}
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105 cursor-pointer"
+                    rel="noopener noreferrer"
+                    href={project.liveUrlLink} 
+                    className="relative transition-transform duration-500 ease-in hover:transform hover:scale-110"
                   >
-                    CLICK HERE
-                  </a> 
-                </span>
-                <span className="flex gap-2 items-center">
-                  SOURCE CODE 
-                  <a 
-                    href={project.sourceCodeLink} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105"
-                  >
-                    CLICK HERE
+                    <img src={project.image} alt="" height="240" width="400" />
+                    { 
+                      isHovered && selectedProject.title === project.title && 
+                      <span className="absolute left-0 text-white p-3 flex justify-center bottom-0 bg-[linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,1))]">
+                        Click to see live {project.title}
+                      </span> 
+                    } 
                   </a>
-                </span>
-                <span>{project.stack}</span>
-              </div>
-            )
-          })
-        }
+                  <h4>{project.title}</h4>
+                  <span className="flex gap-2 items-center">
+                    SEE LIVE 
+                    <a 
+                      // href={project.liveUrlLink} 
+                      onClick={(event) => {
+                        event.preventDefault(); // Prevent the default anchor behavior
+                        if (!project.liveUrlLink ) {
+                          alert('Live url is not available!')
+                        } else {
+                          window.open(project.liveUrlLink, "blank")
+                        }
+                      }}
+                      // target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105 cursor-pointer"
+                    >
+                      CLICK HERE
+                    </a> 
+                  </span>
+                  <span className="flex gap-2 items-center">
+                    SOURCE CODE 
+                    <a 
+                      href={project.sourceCodeLink} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="bg-black text-white py-1 px-2 transition-transform ease-in hover:transform hover:scale-105"
+                    >
+                      CLICK HERE
+                    </a>
+                  </span>
+                  <span>STACK USED <strong className="border-2 rounded-full px-2 text-blue-500">{project.stack}</strong></span>
+                </div>
+              )
+            })
+          }
+        </div>
       </div>
-    </div>
+    </TextAnimation>
   )
 }
 

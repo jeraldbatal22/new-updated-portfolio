@@ -1,6 +1,7 @@
 // import Tooltip from "../UI/Tooltip"
 
-import { useFadeScroll } from "../../hooks/useFadeScroll";
+// import { useFadeScroll } from "../../hooks/useFadeScroll";
+import TextAnimation from "../Common/TextAnimation";
 import Tooltip from "../UI/Tooltip"
 
 const profecients = [
@@ -106,58 +107,67 @@ const exposures = [
 
 const SKills = () => {
 
-  const fadeScroll = useFadeScroll("skills");
+  // const fadeScroll = useFadeScroll("skills");
   
   return (
-    <div className={`py-32 px-16 flex flex-col gap-12 justify-between ${fadeScroll()}`} id="skills">
-      <h1 className="text-[30px] text-blue-500">Skills</h1>
-      <div className="flex flex-col gap-10">
-        <h1 className="text-[30px] text-center text-blue-500 tracking-widest">Proficient</h1>
-        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 m-auto gap-10">
-          {
-            profecients.map((profecient, key) => {
-              return (
-                <Tooltip key={key} text={profecient.title}>
-                  <a href={profecient.urlLink} target="_blank" rel="noopener noreferrer">
-                    <img 
-                      className="relative transition-transform ease-in hover:transform hover:scale-110 cursor-pointer" 
-                      key={key} 
-                      src={profecient.imageLink} 
-                      alt={profecient.title} 
-                      width="80" 
-                      height="80"
-                    /> 
-                  </a>
-                </Tooltip>
-              )
-            })
-          }
+    <TextAnimation>
+      <div className={`h-screen flex flex-col justify-center px-16 gap-12`} id="skills">
+        <h1 className="text-[30px] text-blue-500">Skills</h1>
+        <p> 
+          I am a proficient Frontend web developer with a strong skill set in React JS. My expertise extends to crafting engaging user interfaces using HTML5, CSS, Tailwind CSS, Styled Components, Ant Design, and Redux. 
+          <br/><br/>
+          I also have experience with Node.js, Express.js, React Native, Next.js, as well as working with databases like MongoDB, MySQL and Firebase. Familiar with deployment platforms such as Netlify, Heroku, and Vercel, I am continually exploring new technologies to enhance my skill set.
+          <br/><br/>
+          Passionate about creating efficient and scalable applications, I thrive in collaborative environments and enjoy tackling complex challenges.
+        </p>
+        <div className="flex flex-col gap-10">
+          <h1 className="text-[30px] text-center text-blue-500 tracking-widest">Proficient</h1>
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 m-auto gap-10">
+            {
+              profecients.map((profecient, key) => {
+                return (
+                  <Tooltip key={key} text={profecient.title}>
+                    <a href={profecient.urlLink} target="_blank" rel="noopener noreferrer">
+                      <img 
+                        className="relative transition-transform ease-in hover:transform hover:scale-110 cursor-pointer" 
+                        key={key} 
+                        src={profecient.imageLink} 
+                        alt={profecient.title} 
+                        width="80" 
+                        height="80"
+                      /> 
+                    </a>
+                  </Tooltip>
+                )
+              })
+            }
+          </div>
+        </div>
+        <div className="flex flex-col gap-10">
+          <h1 className="text-[30px] text-center text-blue-500 tracking-widest">Exposure</h1>
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 m-auto gap-10">
+            {
+              exposures.map((exposure, key) => {
+                return (
+                  <Tooltip key={key} text={exposure.title}>
+                    <a href={exposure.urlLink} target="_blank" rel="noopener noreferrer">
+                      <img 
+                        className="relative transition-transform ease-in hover:transform hover:scale-110 cursor-pointer"
+                        key={key} 
+                        src={exposure.imageLink} 
+                        alt={exposure.title} 
+                        width="80" 
+                        height="80"
+                      /> 
+                    </a>
+                  </Tooltip>
+                )
+              })
+            }
+          </div>
         </div>
       </div>
-      <div className="flex flex-col gap-10">
-        <h1 className="text-[30px] text-center text-blue-500 tracking-widest">Exposure</h1>
-        <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 m-auto gap-10">
-          {
-            exposures.map((exposure, key) => {
-              return (
-                <Tooltip key={key} text={exposure.title}>
-                  <a href={exposure.urlLink} target="_blank" rel="noopener noreferrer">
-                    <img 
-                      className="relative transition-transform ease-in hover:transform hover:scale-110 cursor-pointer"
-                      key={key} 
-                      src={exposure.imageLink} 
-                      alt={exposure.title} 
-                      width="80" 
-                      height="80"
-                    /> 
-                  </a>
-                </Tooltip>
-              )
-            })
-          }
-        </div>
-      </div>
-    </div>
+    </TextAnimation>
   )
 }
 
