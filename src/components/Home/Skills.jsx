@@ -111,7 +111,7 @@ const SKills = () => {
   
   return (
     <TextAnimation>
-      <div className={`h-screen flex flex-col justify-center px-16 gap-12`} id="skills">
+      <div className={`h-auto sm:h-screen flex flex-col justify-center px-16 gap-12 py-8 sm:py-0`} id="skills">
         <h1 className="text-[30px] text-blue-500">Skills</h1>
         <p> 
           I am a proficient Frontend web developer with a strong skill set in React JS. My expertise extends to crafting engaging user interfaces using HTML5, CSS, Tailwind CSS, Styled Components, Ant Design, and Redux. 

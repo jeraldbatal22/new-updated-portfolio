@@ -8,7 +8,7 @@ const AboutMe = () => {
 
   return (
     <TextAnimation>
-      <div className={`h-screen flex flex-col justify-center gap-3 px-16`} id="about">
+      <div className={`h-auto sm:h-screen flex flex-col justify-center gap-3 px-16 py-8 sm:py-0`} id="about">
         <h1 className="text-[30px] text-blue-500">About Me</h1>
         <div className="flex flex-col items-center gap-10 lg:flex-row">
           <div className="w-[auto] md:w-[550px]">
