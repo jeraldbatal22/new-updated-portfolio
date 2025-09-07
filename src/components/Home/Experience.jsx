@@ -6,7 +6,7 @@ const experiences = [
     id: 1,
     company: "Integra Studio",
     position: "Frontend Web Developer",
-    duration: "October 2024 - Sep 2025",
+    duration: "October 2024 - Sep 2025 (11 months)",
     location: "Remote",
     type: "Full-time",
     responsibilities: [
@@ -25,7 +25,7 @@ const experiences = [
     id: 2,
     company: "Highly Succeed",
     position: "Frontend Web Developer",
-    duration: "Mar 2022 - 2 years 9 months",
+    duration: "Mar 2022 - June 2025 (2 years 9 months)",
     location: "Remote",
     type: "Full-time",
     responsibilities: [
@@ -48,7 +48,7 @@ const experiences = [
     id: 3,
     company: "BlueFletch",
     position: "Junior Web Developer",
-    duration: "Jan 2022 - Mar 2022",
+    duration: "Jan 2022 - Mar 2022 (3 Months)",
     location: "Remote",
     type: "Contract",
     description: "Started my professional journey as a Junior Web Developer, focusing on bug fixes and feature development for existing web applications.",
