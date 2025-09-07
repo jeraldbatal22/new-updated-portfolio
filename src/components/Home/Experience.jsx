@@ -9,7 +9,6 @@ const experiences = [
     duration: "October 2024 - Sep 2025",
     location: "Remote",
     type: "Full-time",
-    description: "Managing maintenance, bug resolution, and feature enhancements for various web applications using modern frontend technologies.",
     responsibilities: [
       "Manage the maintenance, bug resolution, and feature enhancements for the Movie/Series Application using the Next.js framework",
       "Oversee the maintenance, bug fixing, and feature additions for the CMS admin Application, including dashboard, user management, content management",
@@ -29,7 +28,6 @@ const experiences = [
     duration: "Mar 2022 - 2 years 9 months",
     location: "Remote",
     type: "Full-time",
-    description: "Led frontend development for multiple healthcare and e-commerce applications, ensuring high-quality user experiences and seamless functionality.",
     responsibilities: [
       "Manage the maintenance, bug resolution, and feature enhancements for the Doctor's Web application using the React.js framework",
       "Manage the maintenance, bug resolution, and feature enhancements for the Patient Web application using the React.js framework",
