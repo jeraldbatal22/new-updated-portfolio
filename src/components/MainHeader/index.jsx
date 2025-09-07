@@ -13,6 +13,10 @@ const navItems = [
     to: "about"
   },
   {
+    title: "Experience",
+    to: "experience"
+  },
+  {
     title: "Skills",
     to: "skills"
   },
@@ -37,7 +41,7 @@ const MainHeader = () => {
       setIsScrolled(scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['hero', 'about', 'skills', 'projects', 'footer'];
+      const sections = ['hero', 'about', 'experience', 'skills', 'projects', 'footer'];
       const sectionElements = sections.map(id => document.getElementById(id));
       
       for (let i = sectionElements.length - 1; i >= 0; i--) {

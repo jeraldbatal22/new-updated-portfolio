@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from '../components/Home/Hero';
 import AboutMe from '../components/Home/AboutMe';
+import Experience from '../components/Home/Experience';
 import MainLayout from '../components/MainLayout';
 import Projects from '../components/Home/Projects';
 import SKills from '../components/Home/Skills';
@@ -12,6 +13,7 @@ const Home = () => {
         <Hero/>
         <div className='container mx-auto'>
           <AboutMe/>
+          <Experience/>
           <SKills/>
           <Projects/>
         </div>

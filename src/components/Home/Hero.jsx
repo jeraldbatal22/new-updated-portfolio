@@ -63,13 +63,13 @@ const Hero = () => {
         <animated.div style={slideUp} className="space-y-6">
           <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             Passionate Frontend Developer crafting beautiful, responsive web experiences with modern technologies.
-            Let's build something amazing together!
+            Let`s build something amazing together!
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
             <a
-              href="/jeraldbatal-resume.pdf"
+              href="/jerald_batal_resume_2025.pdf"
               download
               className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >

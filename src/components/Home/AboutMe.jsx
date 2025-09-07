@@ -61,7 +61,7 @@ const AboutMe = () => {
 
                 <div className="mt-6">
                   <a 
-                    href="./jeraldbatal-resume.pdf" 
+                    href="./jerald_batal_resume_2025.pdf" 
                     download
                     className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
