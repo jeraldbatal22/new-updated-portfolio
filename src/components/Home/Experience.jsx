@@ -76,6 +76,35 @@ const Experience = () => {
             </p>
           </div>
 
+          {/* Summary and Objective Section */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {/* Summary */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <FaCode className="mr-3 text-blue-500" />
+                Summary
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Results-driven Frontend Web Developer with 3+ years of experience building responsive, scalable, and
+                user-friendly web applications. Skilled in modern frameworks such as React.js, Next.js, Redux Toolkit, and
+                TypeScript, with a strong foundation in UI/UX principles. Passionate about creating intuitive digital experiences
+                and contributing to innovative projects through clean, maintainable code.
+              </p>
+            </div>
+
+            {/* Objective */}
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
+              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                <FaUsers className="mr-3 text-purple-500" />
+                Objective
+              </h3>
+              <p className="text-gray-700 leading-relaxed">
+                Seeking a challenging role in software engineering or frontend development that leverages my technical expertise,
+                strengthens my professional skills, and contributes to delivering impactful web solutions.
+              </p>
+            </div>
+          </div>
+
           {/* Experience Timeline */}
           <div className="relative">
             {/* Timeline Line */}
