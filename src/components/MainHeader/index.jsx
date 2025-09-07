@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { IoMdClose  } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
 import { Link } from "react-scroll";
 
 const navItems = [
@@ -28,74 +28,114 @@ const navItems = [
 
 const MainHeader = () => {
   const [isShowNavItems, setIsShowItems] = useState(false);
-  // const [selectedItem, setSelectedItem] = useState(navItems[0]);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
 
-  // const handleScroll = () => {
-  //   const scrollY = window.scrollY;
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setIsScrolled(scrollY > 50);
 
-  //   // Retrieve the scroll positions from the DOM based on div IDs
-  //   const sectionIds = ['hero', 'about', 'skills', 'projects', 'footer'];
-  //   const sectionScrollPositions = sectionIds.map(id => document.getElementById(id)?.offsetTop || 0);
-  //   // Find the index of the current section based on scroll position
-  //   const currentSectionIndex = sectionScrollPositions.findIndex((position, index, array) => {
-  //     const nextPosition = array[index + 1] || Infinity;
-  //     return scrollY >= position && scrollY < nextPosition;
-  //     // return scrollY > nextPosition - window.innerHeight + 100
-  //   });
-  //   // Set the selected item based on the current section index
-  //   setSelectedItem(navItems[currentSectionIndex]);
-  // };
+      // Update active section based on scroll position
+      const sections = ['hero', 'about', 'skills', 'projects', 'footer'];
+      const sectionElements = sections.map(id => document.getElementById(id));
+      
+      for (let i = sectionElements.length - 1; i >= 0; i--) {
+        const element = sectionElements[i];
+        if (element && scrollY >= element.offsetTop - 200) {
+          setActiveSection(sections[i]);
+          break;
+        }
+      }
+    };
 
-  // useEffect(() => {
-  //   // Add scroll event listener when component mounts
-  //   window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  //   // Remove scroll event listener when component unmounts
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []); // Empty dependency array means this effect runs once when the component mounts
+  const handleNavClick = () => {
+    setIsShowItems(false);
+  };
 
   return (
-    <div className="bg-[linear-gradient(rgba(0,0,0,.9),#000)] bg-red-500 ">
-      <div className="py-6 px-12 md:px-10 lg:px-48 fixed top-0 right-0 left-0 z-10 flex items-center justify-between bg-[linear-gradient(rgba(0,0,0,.9),#000)]">
-        <h1 className="text-white text-[10px] sm:text-[16px] md:text-[32px]">JeraldDev.</h1>
-        <ul
-          className={`
-            ${isShowNavItems ? "flex items-center justify-center fixed top-0 right-0 left-0 py-10 bg-white gap-6" : "hidden"}
-            text-black md:flex md:relative md:gap-10 md:flex-row md:bg-transparent md:text-white md:py-0
-          `}
-        >
-          {navItems.map((nav, key) => (
-            <li
-              key={key}
-              // className={`cursor-pointer text-[10px] sm:text-[16px] md:text-[20px] ${selectedItem.to === nav.to && "border-b-2 border-blue-500"}`}
-              className={`cursor-pointer text-[10px] sm:text-[16px] md:text-[20px] hover:text-blue-500`}
-            >
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+        : 'bg-transparent'
+    }`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link 
+            to="hero" 
+            smooth={true} 
+            duration={1000}
+            className="text-2xl font-bold text-white hover:text-blue-400 transition-colors duration-300"
+          >
+            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
+              JeraldDev
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((nav) => (
               <Link
+                key={nav.to}
                 to={nav.to}
-                // onClick={() => {
-                //   setSelectedItem(nav);
-                //   setIsShowItems(false); // Close the menu on item click
-                // }}
                 smooth={true}
                 duration={1000}
+                className={`cursor-pointer px-3 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
+                  activeSection === nav.to
+                    ? 'text-blue-500 bg-blue-50'
+                    : isScrolled 
+                      ? 'text-gray-700 hover:text-blue-500 hover:bg-gray-100'
+                      : 'text-white hover:text-blue-400'
+                }`}
               >
                 {nav.title}
               </Link>
-            </li>
-          ))}
-          <IoMdClose
-            onClick={() => setIsShowItems(false)}
-            className={`w-auto flex text-black`}
-          />
-        </ul>
-        <GiHamburgerMenu
-          onClick={() => setIsShowItems(true)}
-          className={`${isShowNavItems ? "hidden" : "flex"} cursor-pointer z-10 md:hidden text-white`}
-        />
+            ))}
+          </nav>
+
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsShowItems(!isShowNavItems)}
+            className="md:hidden p-2 rounded-md text-white hover:bg-white/10 transition-colors duration-300"
+          >
+            {isShowNavItems ? (
+              <IoMdClose className="h-6 w-6 text-[#9333ea]" />
+            ) : (
+              <GiHamburgerMenu className="h-6 w-6 text-[#9333ea]" />
+            )}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isShowNavItems && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 backdrop-blur-md rounded-lg mt-2 shadow-lg">
+              {navItems.map((nav) => (
+                <Link
+                  key={nav.to}
+                  to={nav.to}
+                  smooth={true}
+                  duration={1000}
+                  onClick={() => handleNavClick(nav)}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-300 ${
+                    activeSection === nav.to
+                      ? 'text-blue-500 bg-blue-50'
+                      : 'text-gray-700 hover:text-blue-500 hover:bg-gray-100'
+                  }`}
+                >
+                  {nav.title}
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
-    </div>
+    </header>
   )
 }
 

@@ -1,49 +1,108 @@
-// import { useEffect, useState } from "react";
-// import { useFadeScroll } from "../../hooks/useFadeScroll";
 import TextAnimation from "../Common/TextAnimation";
+import { FaDownload, FaEnvelope, FaPhone, FaUser, FaCode } from "react-icons/fa";
 
 const AboutMe = () => {
-
-  // const fadeScroll = useFadeScroll("about");
-
   return (
-    <TextAnimation>
-      <div className={`h-auto sm:h-screen flex flex-col justify-center gap-3 px-16 py-8 sm:py-0`} id="about">
-        <h1 className="text-[30px] text-blue-500">About Me</h1>
-        <div className="flex flex-col items-center gap-10 lg:flex-row">
-          <div className="w-[auto] md:w-[550px]">
-            <img src="./images/jerald2.jpg" className="flex-1" alt="" width={500} height={500}/>
+    <section className="py-20 bg-gray-50" id="about">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <TextAnimation>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              About <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Me</span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
           </div>
-          <div className="flex-1 flex flex-col justify-center gap-12 h-full">
-            <div>
-              <a 
-                href="./jeraldbatal-resume.pdf" 
-                download
-                className="bg-blue-500 text-white px-3 py-2 rounded-lg text-sm hover:bg-blue-400"
-              >
-                Download CV
-              </a>
-              <ul className="mt-3">
-                <li><span className="text-blue-500">Name:</span> Jerald Malacaste Batal</li>
-                <li><span className="text-blue-500">Profile:</span> Frontend Web Developer</li>
-                <li><span className="text-blue-500">Gmail:</span> btljrld22@gmail.com</li>
-                <li><span className="text-blue-500">Mobile Number:</span> 09462469596</li>
-              </ul>
+
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Profile Image */}
+            <div className="relative group">
+              <div className="absolute -inset-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+              <div className="relative">
+                <img 
+                  src="./images/jerald2.jpg" 
+                  alt="Jerald Batal" 
+                  className="w-full max-w-md mx-auto rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
             </div>
-            <div className="border-b-2 border-blue-500"/>
-            <div className="">
-              <h1 className="text-[30px] text-blue-500">Introduction</h1>
-              {/* <p>Hello, my name is Jerald. You can call me JB, Jer, or Rald. I am 4 years graduated in Bachelor of Science degree in Hotel and Restaurant Management. I recently made a career shift into the field of software engineering to further develop my coding skills and knowledge. I discovered a passion for building and publishing websites along the way. My career goal is to become a highly skilled and professional web developer, with aspirations of becoming a full-stack developer in the future. In my free time, I enjoy playing basketball, mobile games, and computer games. I also find relaxation in playing the guitar instrumentally and arranging music. Additionally, I like to watch K-Dramas and Netflix movies when I feel stuck or bored with coding.</p> */}
-              <p>Hello, I’m Jerald, but you can call me JB, Jer, or Rald. I graduated with a degree in Hotel and Restaurant Management, but I decided to switch careers and become a front-end developer in IT.</p>
-              <br/>
-              <p>My current career goal is to become a highly skilled and professional web developer, with the aspiration of eventually transitioning into a full-stack developer role. This involves mastering both the front-end and back-end aspects of web development to create comprehensive and robust applications.</p>
-              <br/>
-              <p>In my free time, I enjoy playing basketball, mobile and computer games, and playing guitar its either singing or instrumental music. I also like watching K-Dramas and Netflix movies to relax when I need a break from coding.</p>
+
+            {/* Content */}
+            <div className="space-y-8">
+              {/* Personal Info */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <FaUser className="mr-3 text-blue-500" />
+                  Personal Information
+                </h3>
+                
+                <div className="space-y-4">
+                  <div className="flex items-center space-x-4">
+                    <span className="text-blue-500 font-semibold min-w-[80px]">Name:</span>
+                    <span className="text-gray-700">Jerald Malacaste Batal</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <span className="text-blue-500 font-semibold min-w-[80px]">Role:</span>
+                    <span className="text-gray-700">Frontend Web Developer</span>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <FaEnvelope className="text-blue-500" />
+                    <a href="mailto:btljrld22@gmail.com" className="text-gray-700 hover:text-blue-500 transition-colors">
+                      btljrld22@gmail.com
+                    </a>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <FaPhone className="text-blue-500" />
+                    <a href="tel:09462469596" className="text-gray-700 hover:text-blue-500 transition-colors">
+                      +63 946 246 9596
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-6">
+                  <a 
+                    href="./jeraldbatal-resume.pdf" 
+                    download
+                    className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <FaDownload className="mr-2" />
+                    Download Resume
+                  </a>
+                </div>
+              </div>
+
+              {/* Introduction */}
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <FaCode className="mr-3 text-blue-500" />
+                  My Story
+                </h3>
+                
+                <div className="space-y-4 text-gray-700 leading-relaxed">
+                  <p>
+                    Hello! I'm Jerald, but you can call me JB, Jer, or Rald. I graduated with a degree in 
+                    <strong className="text-blue-600"> Hotel and Restaurant Management</strong>, but I made a 
+                    bold decision to switch careers and pursue my passion for technology as a frontend developer.
+                  </p>
+                  
+                  <p>
+                    My current career goal is to become a highly skilled and professional web developer, with the 
+                    aspiration of eventually transitioning into a <strong className="text-purple-600">full-stack developer</strong> role. 
+                    This involves mastering both frontend and backend technologies to create comprehensive and robust applications.
+                  </p>
+                  
+                  <p>
+                    When I'm not coding, I enjoy playing basketball, mobile and computer games, and playing guitar 
+                    (both singing and instrumental). I also love watching K-Dramas and Netflix movies to relax when 
+                    I need a break from coding.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
+        </TextAnimation>
       </div>
-    </TextAnimation>
+    </section>
   )
 }
 

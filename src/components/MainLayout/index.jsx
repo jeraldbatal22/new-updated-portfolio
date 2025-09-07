@@ -3,11 +3,11 @@ import MainHeader from "../MainHeader"
 
 const MainLayout = ({ children }) => {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col">
       <MainHeader/>
-        <div className="mb-32">
-          {children}
-        </div>
+      <main className="flex-1">
+        {children}
+      </main>
       <MainFooter/>
     </div>
   )

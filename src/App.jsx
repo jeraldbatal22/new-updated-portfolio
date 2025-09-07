@@ -1,9 +1,13 @@
-// import MainHeader from "./components/MainHeader"
+import { HelmetProvider } from 'react-helmet-async';
+import SEOHead from "./components/SEO/SEOHead";
 import Home from "./pages/Home"
 
 const App = () => {
   return (
-    <Home/>
+    <HelmetProvider>
+      <SEOHead />
+      <Home/>
+    </HelmetProvider>
   )
 }
 
