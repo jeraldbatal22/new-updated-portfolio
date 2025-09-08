@@ -134,7 +134,7 @@ const Experience = () => {
                             </span>
                           )}
                         </div>
-                        <div className="flex md:items-center space-x-4 text-gray-600 flex-col md:flex-row">
+                        <div className="flex md:items-center md:space-x-4 text-gray-600 flex-col md:flex-row">
                           <div className="flex items-center space-x-1">
                             <FaBriefcase className="text-blue-500" />
                             <span className="font-semibold">{exp.company}</span>
