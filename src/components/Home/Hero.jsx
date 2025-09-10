@@ -1,9 +1,12 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Typewriter from 'typewriter-effect/dist/core';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
+import ResumeDownloadModal from '../Common/ResumeDownloadModal';
 
 const Hero = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const props = useSpring({
     opacity: 1,
     from: { opacity: 0 },
@@ -68,14 +71,13 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
-            <a
-              href="/jerald_batal_resume_2025.pdf"
-              download
+            <button
+              onClick={() => setIsModalOpen(true)}
               className="group inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-full hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               <FaDownload className="mr-2" />
               Download Resume
-            </a>
+            </button>
             
             <a
               href="#projects"
@@ -119,6 +121,12 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
+
+      {/* Resume Download Modal */}
+      <ResumeDownloadModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   )
 }

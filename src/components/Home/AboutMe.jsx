@@ -1,7 +1,11 @@
+import { useState } from 'react';
 import TextAnimation from "../Common/TextAnimation";
 import { FaDownload, FaEnvelope, FaPhone, FaUser, FaCode } from "react-icons/fa";
+import ResumeDownloadModal from "../Common/ResumeDownloadModal";
 
 const AboutMe = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className="py-20 bg-gray-50" id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -60,14 +64,13 @@ const AboutMe = () => {
                 </div>
 
                 <div className="mt-6">
-                  <a 
-                    href="./jerald_batal_resume_2025.pdf" 
-                    download
+                  <button 
+                    onClick={() => setIsModalOpen(true)}
                     className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-600 hover:to-purple-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     <FaDownload className="mr-2" />
                     Download Resume
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -80,7 +83,7 @@ const AboutMe = () => {
                 
                 <div className="space-y-4 text-gray-700 leading-relaxed">
                   <p>
-                    Hello! I'm Jerald, but you can call me JB, Jer, or Rald. I graduated with a degree in 
+                    Hello! I`m Jerald, but you can call me JB, Jer, or Rald. I graduated with a degree in 
                     <strong className="text-blue-600"> Hotel and Restaurant Management</strong>, but I made a 
                     bold decision to switch careers and pursue my passion for technology as a frontend developer.
                   </p>
@@ -92,7 +95,7 @@ const AboutMe = () => {
                   </p>
                   
                   <p>
-                    When I'm not coding, I enjoy playing basketball, mobile and computer games, and playing guitar 
+                    When I`m not coding, I enjoy playing basketball, mobile and computer games, and playing guitar 
                     (both singing and instrumental). I also love watching K-Dramas and Netflix movies to relax when 
                     I need a break from coding.
                   </p>
@@ -102,6 +105,12 @@ const AboutMe = () => {
           </div>
         </TextAnimation>
       </div>
+
+      {/* Resume Download Modal */}
+      <ResumeDownloadModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+      />
     </section>
   )
 }
