@@ -48,6 +48,17 @@ export const resumeData = {
       techStack: "React.js, Redux, Storybook"
     },
     {
+      title: "Encoder/Checker",
+      company: "Glacier North Refrigeration Services, Quezon City",
+      period: "Mar 2019 – Jan 2020 (6 months)",
+      responsibilities: [
+        "Responsible for checking and encoding client withdrawal and deposit documents.",
+        "Ensured products were safe and clean before loading or unloading.",
+        "Assisted with clerical tasks and maintained accurate transaction records."
+      ],
+      techStack: ""
+    },
+    {
       title: "Service Crew",
       company: "McDonald's (Bagong Silang)",
       period: "Jan 2 2018 – Jan 2019 (1 Year)",
@@ -58,17 +69,6 @@ export const resumeData = {
       ],
       techStack: ""
     },
-    {
-      title: "Encoder/Checker",
-      company: "Glacier North Refrigeration Services, Quezon City",
-      period: "Mar 2019 – Jan 2020 (6 months)",
-      responsibilities: [
-        "Responsible for checking and encoding client withdrawal and deposit documents.",
-        "Ensured products were safe and clean before loading or unloading.",
-        "Assisted with clerical tasks and maintained accurate transaction records."
-      ],
-      techStack: ""
-    }
   ],
   education: [
     {
