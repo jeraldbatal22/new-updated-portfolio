@@ -1,12 +1,15 @@
 import { HelmetProvider } from 'react-helmet-async';
+import { ThemeProvider } from './contexts/ThemeContext';
 import SEOHead from "./components/SEO/SEOHead";
 import Home from "./pages/Home"
 
 const App = () => {
   return (
     <HelmetProvider>
-      <SEOHead />
-      <Home/>
+      <ThemeProvider>
+        <SEOHead />
+        <Home/>
+      </ThemeProvider>
     </HelmetProvider>
   )
 }

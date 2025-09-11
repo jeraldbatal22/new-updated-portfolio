@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TextAnimation from "../Common/TextAnimation";
 import { FaExternalLinkAlt, FaGithub, FaEye, FaCode } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const projects = [
   {
@@ -143,6 +144,7 @@ const projects = [
 const Projects = () => {
   const [filter, setFilter] = useState("all");
   const [hoveredProject, setHoveredProject] = useState(null);
+  const { isDark } = useTheme();
 
   const filteredProjects = projects.filter(project => {
     if (filter === "all") return true;
@@ -153,15 +155,15 @@ const Projects = () => {
   const stackOptions = ["all", "featured", "react", "javascript", "html", "rails"];
 
   return (
-    <section className="py-20 bg-gray-50" id="projects">
+    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-gray-50'}`} id="projects">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               My <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Projects</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className={`text-lg max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               A collection of projects showcasing my skills and passion for web development. 
               Each project represents a learning journey and demonstrates different aspects of modern web technologies.
             </p>
@@ -176,7 +178,9 @@ const Projects = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
                   filter === option
                     ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+                    : isDark 
+                      ? 'bg-slate-700 text-gray-300 hover:bg-slate-600 shadow-md' 
+                      : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
                 }`}
               >
                 {option.charAt(0).toUpperCase() + option.slice(1)}
@@ -189,7 +193,9 @@ const Projects = () => {
             {filteredProjects.map((project, key) => (
               <div
                 key={key}
-                className="group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden"
+                className={`group rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 overflow-hidden ${
+                  isDark ? 'bg-slate-800' : 'bg-white'
+                }`}
                 onMouseEnter={() => setHoveredProject(key)}
                 onMouseLeave={() => setHoveredProject(null)}
               >
@@ -241,11 +247,15 @@ const Projects = () => {
 
                 {/* Project Content */}
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{project.title}</h3>
-                  <p className="text-gray-600 mb-4 text-sm leading-relaxed">{project.description}</p>
+                  <h3 className={`text-xl font-bold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>{project.title}</h3>
+                  <p className={`mb-4 text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>{project.description}</p>
                   
                   <div className="flex items-center justify-between">
-                    <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
+                    <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium transition-colors duration-300 ${
+                      isDark 
+                        ? 'bg-blue-900/30 text-blue-300 border border-blue-700' 
+                        : 'bg-blue-100 text-blue-800'
+                    }`}>
                       <FaCode className="mr-1" />
                       {project.stack}
                     </span>
@@ -256,7 +266,11 @@ const Projects = () => {
                           href={project.liveUrlLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="p-2 text-gray-400 hover:text-blue-500 transition-colors"
+                          className={`p-2 transition-colors duration-300 ${
+                            isDark 
+                              ? 'text-gray-400 hover:text-blue-400' 
+                              : 'text-gray-400 hover:text-blue-500'
+                          }`}
                           title="Live Demo"
                         >
                           <FaExternalLinkAlt className="w-4 h-4" />
@@ -266,7 +280,11 @@ const Projects = () => {
                         href={project.sourceCodeLink}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 text-gray-400 hover:text-gray-600 transition-colors"
+                        className={`p-2 transition-colors duration-300 ${
+                          isDark 
+                            ? 'text-gray-400 hover:text-gray-300' 
+                            : 'text-gray-400 hover:text-gray-600'
+                        }`}
                         title="Source Code"
                       >
                         <FaGithub className="w-4 h-4" />
@@ -280,14 +298,24 @@ const Projects = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
+            <div className={`rounded-2xl p-8 transition-colors duration-300 ${
+              isDark 
+                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white' 
+                : 'bg-gradient-to-r from-blue-50 to-purple-50 text-gray-900'
+            }`}>
               <h3 className="text-2xl font-bold mb-4">Interested in Working Together?</h3>
-              <p className="text-lg mb-6 opacity-90">
+              <p className={`text-lg mb-6 transition-colors duration-300 ${
+                isDark ? 'opacity-90' : 'opacity-80'
+              }`}>
                 I`m always excited to work on new projects and collaborate with amazing people.
               </p>
               <a
                 href="#footer"
-                className="inline-flex items-center px-8 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                className={`inline-flex items-center px-8 py-3 font-semibold rounded-lg transition-colors duration-300 ${
+                  isDark 
+                    ? 'bg-white text-gray-900 hover:bg-gray-100' 
+                    : 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700'
+                }`}
               >
                 Get In Touch
               </a>

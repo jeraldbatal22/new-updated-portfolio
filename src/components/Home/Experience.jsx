@@ -1,5 +1,6 @@
 import TextAnimation from "../Common/TextAnimation";
 import { FaBriefcase, FaCalendarAlt, FaMapMarkerAlt, FaCode, FaUsers, FaCog, FaHistory } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const experiences = [
   {
@@ -65,16 +66,18 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="py-20 bg-white" id="experience">
+    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`} id="experience">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               Work <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Experience</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className={`text-lg max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               My professional journey as a Frontend Web Developer, showcasing growth, expertise, and contributions to various projects and teams.
             </p>
           </div>
@@ -82,12 +85,12 @@ const Experience = () => {
           {/* Summary and Objective Section */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
             {/* Summary */}
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <div className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'} border`}>
+              <h3 className={`text-2xl font-bold mb-6 flex items-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 <FaCode className="mr-3 text-blue-500" />
                 Summary
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className={`leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                 Results-driven Frontend Web Developer with 3+ years of experience building responsive, scalable, and
                 user-friendly web applications. Skilled in modern frameworks such as React.js, Next.js, Redux Toolkit, and
                 TypeScript, with a strong foundation in UI/UX principles. Passionate about creating intuitive digital experiences
@@ -96,12 +99,12 @@ const Experience = () => {
             </div>
 
             {/* Objective */}
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+            <div className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'} border`}>
+              <h3 className={`text-2xl font-bold mb-6 flex items-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 <FaUsers className="mr-3 text-purple-500" />
                 Objective
               </h3>
-              <p className="text-gray-700 leading-relaxed">
+              <p className={`leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                 Seeking a challenging role in software engineering or frontend development that leverages my technical expertise,
                 strengthens my professional skills, and contributes to delivering impactful web solutions.
               </p>
@@ -122,19 +125,19 @@ const Experience = () => {
 
                 {/* Experience Card */}
                 <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
-                  <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
+                  <div className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'} border`}>
                     {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
                       <div>
                         <div className="flex items-center space-x-3 mb-2">
-                          <h3 className="text-2xl font-bold text-gray-900">{exp.position}</h3>
+                          <h3 className={`text-2xl font-bold transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>{exp.position}</h3>
                           {exp.current && (
                             <span className="bg-gradient-to-r from-green-400 to-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
                               Current
                             </span>
                           )}
                         </div>
-                        <div className="flex md:items-center md:space-x-4 text-gray-600 flex-col md:flex-row">
+                        <div className={`flex md:items-center md:space-x-4 flex-col md:flex-row transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                           <div className="flex items-center space-x-1">
                             <FaBriefcase className="text-blue-500" />
                             <span className="font-semibold">{exp.company}</span>
@@ -151,22 +154,22 @@ const Experience = () => {
                         <div className="flex items-center space-x-4 mt-2">
                           <div className="flex items-center space-x-1">
                             <FaMapMarkerAlt className="text-gray-400" />
-                            <span className="text-sm text-gray-500">{exp.location}</span>
+                            <span className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{exp.location}</span>
                           </div>
-                          <span className="text-sm text-gray-500">•</span>
-                          <span className="text-sm text-gray-500">{exp.type}</span>
+                          <span className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>•</span>
+                          <span className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>{exp.type}</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-700 mb-6 leading-relaxed">
+                    <p className={`mb-6 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                       {exp.description}
                     </p>
 
                     {/* Responsibilities */}
                     <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <h4 className={`text-lg font-semibold mb-4 flex items-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         <FaCog className="mr-2 text-blue-500" />
                         Key Responsibilities
                       </h4>
@@ -174,7 +177,7 @@ const Experience = () => {
                         {exp.responsibilities.map((responsibility, idx) => (
                           <li key={idx} className="flex items-start space-x-3">
                             <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-gray-700 text-sm leading-relaxed">{responsibility}</span>
+                            <span className={`text-sm leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{responsibility}</span>
                           </li>
                         ))}
                       </ul>
@@ -182,7 +185,7 @@ const Experience = () => {
 
                     {/* Technologies */}
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
+                      <h4 className={`text-lg font-semibold mb-4 flex items-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                         <FaCode className="mr-2 text-purple-500" />
                         Technologies Used
                       </h4>
@@ -190,7 +193,11 @@ const Experience = () => {
                         {exp.technologies.map((tech, idx) => (
                           <span
                             key={idx}
-                            className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-50 to-purple-50 text-gray-700 border border-blue-200"
+                            className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium border transition-colors duration-300 ${
+                              isDark 
+                                ? 'bg-gradient-to-r from-slate-600 to-slate-700 text-gray-300 border-slate-500' 
+                                : 'bg-gradient-to-r from-blue-50 to-purple-50 text-gray-700 border-blue-200'
+                            }`}
                           >
                             {tech}
                           </span>
@@ -206,7 +213,7 @@ const Experience = () => {
           {/* Education Section */}
           <div className="mt-20">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              <h3 className={`text-3xl font-bold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Education</span>
               </h3>
               <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
@@ -214,36 +221,36 @@ const Experience = () => {
 
             <div className="grid md:grid-cols-2 gap-8">
               {/* Avion School */}
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
+              <div className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'} border`}>
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                     <FaCode className="text-white text-xl" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">Software Engineer</h4>
+                    <h4 className={`text-xl font-bold transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Software Engineer</h4>
                     <p className="text-blue-600 font-semibold">Avion School</p>
-                    <p className="text-gray-500 text-sm">2021 - 2021</p>
+                    <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>2021 - 2021</p>
                   </div>
                 </div>
-                <div className="space-y-2 text-gray-700">
+                <div className={`space-y-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   <p className="text-sm">• 3 months frontend using HTML, CSS, JavaScript and React.js</p>
                   <p className="text-sm">• 3 months backend using Ruby on Rails</p>
                 </div>
               </div>
 
               {/* Access Computer College */}
-              <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 border border-gray-100">
+              <div className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'} border`}>
                 <div className="flex items-center space-x-4 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
                     <FaUsers className="text-white text-xl" />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-gray-900">Bachelor of Science in Hotel and Restaurant Management</h4>
+                    <h4 className={`text-xl font-bold transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Bachelor of Science in Hotel and Restaurant Management</h4>
                     <p className="text-purple-600 font-semibold">Access Computer College</p>
-                    <p className="text-gray-500 text-sm">2014 - 2018</p>
+                    <p className={`text-sm transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>2014 - 2018</p>
                   </div>
                 </div>
-                <div className="space-y-2 text-gray-700">
+                <div className={`space-y-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   <p className="text-sm">• Comprehensive study in hospitality management</p>
                   <p className="text-sm">• Customer service and business operations</p>
                 </div>
@@ -253,15 +260,25 @@ const Experience = () => {
 
           {/* Call to Action */}
           <div className="text-center mt-16">
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl p-8 text-white">
+            <div className={`rounded-2xl p-8 transition-colors duration-300 ${
+              isDark 
+                ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white' 
+                : 'bg-gradient-to-r from-blue-50 to-purple-50 text-gray-900'
+            }`}>
               <h3 className="text-2xl font-bold mb-4">Ready to Work Together?</h3>
-              <p className="text-lg mb-6 opacity-90">
+              <p className={`text-lg mb-6 transition-colors duration-300 ${
+                isDark ? 'opacity-90' : 'opacity-80'
+              }`}>
                 With my diverse experience in frontend development and passion for creating exceptional user experiences, 
                 I`m excited to bring value to your next project.
               </p>
               <a
                 href="#footer"
-                className="inline-flex items-center px-8 py-3 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors"
+                className={`inline-flex items-center px-8 py-3 font-semibold rounded-lg transition-colors duration-300 ${
+                  isDark 
+                    ? 'bg-white text-gray-900 hover:bg-gray-100' 
+                    : 'bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700'
+                }`}
               >
                 Let`s Connect
               </a>

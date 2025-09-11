@@ -4,6 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme CSS Variables */
+:root {
+  --theme-bg: #ffffff;
+  --theme-text: #1f2937;
+  --theme-text-secondary: #6b7280;
+  --theme-border: #e5e7eb;
+  --theme-card: #ffffff;
+}
+
+.dark {
+  --theme-bg: #0f172a;
+  --theme-text: #f8fafc;
+  --theme-text-secondary: #cbd5e1;
+  --theme-border: #334155;
+  --theme-card: #1e293b;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -16,9 +33,10 @@ html {
 
 body {
   font-family: 'Inter', 'Poppins', sans-serif;
-  background-color: #ffffff;
+  background-color: var(--theme-bg);
   line-height: 1.6;
-  color: #1f2937;
+  color: var(--theme-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom scrollbar */

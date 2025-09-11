@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react';
 import { useSpring, animated } from 'react-spring';
 import Typewriter from 'typewriter-effect/dist/core';
 import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from 'react-icons/fa';
+import { useTheme } from '../../contexts/ThemeContext';
 import ResumeDownloadModal from '../Common/ResumeDownloadModal';
 
 const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isDark } = useTheme();
 
   const props = useSpring({
     opacity: 1,
@@ -31,9 +33,9 @@ const Hero = () => {
     typewriter
       .typeString('Jerald Malacaste <br/> Batal.')
       .deleteChars(40)
-      .typeString('React Js <br/> Web Developer.')
+      .typeString('React Js <br/> Developer.')
       .deleteChars(40)
-      .typeString('Frontend <br/> Web Developer.')
+      .typeString('Frontend <br/> Developer.')
       .deleteChars(40)
       .start();
   }, [])
@@ -42,30 +44,44 @@ const Hero = () => {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden" id="hero">
       {/* Background with overlay */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-500"
         style={{
-          backgroundImage: 'url(/images/hero-background.jpg)',
+          backgroundImage: isDark 
+            ? 'url(/images/black-hero-background-1.jpg)' 
+            : 'url(/images/white-hero-background-1.jpg)',
           backgroundAttachment: 'fixed'
         }}
       ></div>
-      <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70"></div>
+      <div className={`absolute inset-0 transition-all duration-500 ${
+        isDark 
+          ? 'bg-gradient-to-br from-black/70 via-black/50 to-black/70' 
+          : 'bg-gradient-to-br from-white/70 via-white/50 to-white/70'
+      }`}></div>
       
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className={`absolute -top-40 -right-40 w-80 h-80 rounded-full blur-3xl animate-pulse transition-all duration-500 ${
+          isDark ? 'bg-blue-500/20' : 'bg-blue-600/30'
+        }`}></div>
+        <div className={`absolute -bottom-40 -left-40 w-80 h-80 rounded-full blur-3xl animate-pulse delay-1000 transition-all duration-500 ${
+          isDark ? 'bg-purple-500/20' : 'bg-purple-600/30'
+        }`}></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <animated.div style={props} className="mb-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight transition-colors duration-500 ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
             {"I'm"} <span id="typewriter" className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"></span>
           </h1>
         </animated.div>
 
         <animated.div style={slideUp} className="space-y-6">
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Passionate Frontend Developer crafting beautiful, responsive web experiences with modern technologies.
+          <p className={`text-lg md:text-xl max-w-3xl mx-auto leading-relaxed transition-colors duration-500 ${
+            isDark ? 'text-gray-300' : 'text-gray-700'
+          }`}>
+            Passionate Frontend Developer crafting beautiful, responsive web and mobile experiences with modern technologies.
             Let`s build something amazing together!
           </p>
 
@@ -81,7 +97,11 @@ const Hero = () => {
             
             <a
               href="#projects"
-              className="group inline-flex items-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-full hover:bg-white/10 hover:border-white/50 transform hover:scale-105 transition-all duration-300 backdrop-blur-sm"
+              className={`group inline-flex items-center px-8 py-4 border-2 font-semibold rounded-full transform hover:scale-105 transition-all duration-300 backdrop-blur-sm ${
+                isDark 
+                  ? 'border-white/30 text-white hover:bg-white/10 hover:border-white/50' 
+                  : 'border-gray-300 text-gray-900 hover:bg-gray-100 hover:border-gray-400'
+              }`}
             >
               View My Work
             </a>
@@ -93,23 +113,41 @@ const Hero = () => {
               href="https://github.com/jeraldbatal22"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
+              className={`group p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
+                isDark 
+                  ? 'bg-white/10 hover:bg-white/20' 
+                  : 'bg-gray-200/50 hover:bg-gray-300/50'
+              }`}
             >
-              <FaGithub className="w-6 h-6 text-white group-hover:text-blue-400" />
+              <FaGithub className={`w-6 h-6 group-hover:text-blue-400 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-700'
+              }`} />
             </a>
             <a
               href="https://www.linkedin.com/in/jerald-batal/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
+              className={`group p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
+                isDark 
+                  ? 'bg-white/10 hover:bg-white/20' 
+                  : 'bg-gray-200/50 hover:bg-gray-300/50'
+              }`}
             >
-              <FaLinkedin className="w-6 h-6 text-white group-hover:text-blue-400" />
+              <FaLinkedin className={`w-6 h-6 group-hover:text-blue-400 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-700'
+              }`} />
             </a>
             <a
               href="mailto:btljrld22@gmail.com"
-              className="group p-3 bg-white/10 rounded-full hover:bg-white/20 transition-all duration-300 transform hover:scale-110"
+              className={`group p-3 rounded-full transition-all duration-300 transform hover:scale-110 ${
+                isDark 
+                  ? 'bg-white/10 hover:bg-white/20' 
+                  : 'bg-gray-200/50 hover:bg-gray-300/50'
+              }`}
             >
-              <FaEnvelope className="w-6 h-6 text-white group-hover:text-blue-400" />
+              <FaEnvelope className={`w-6 h-6 group-hover:text-blue-400 transition-colors duration-300 ${
+                isDark ? 'text-white' : 'text-gray-700'
+              }`} />
             </a>
           </div>
         </animated.div>
@@ -117,8 +155,12 @@ const Hero = () => {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-white/50 rounded-full flex justify-center">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+        <div className={`w-6 h-10 border-2 rounded-full flex justify-center transition-colors duration-500 ${
+          isDark ? 'border-white/50' : 'border-gray-400/50'
+        }`}>
+          <div className={`w-1 h-3 rounded-full mt-2 animate-pulse transition-colors duration-500 ${
+            isDark ? 'bg-white/50' : 'bg-gray-400/50'
+          }`}></div>
         </div>
       </div>
 

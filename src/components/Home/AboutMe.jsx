@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import TextAnimation from "../Common/TextAnimation";
 import { FaDownload, FaEnvelope, FaPhone, FaUser, FaCode } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
 import ResumeDownloadModal from "../Common/ResumeDownloadModal";
 
 const AboutMe = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { isDark } = useTheme();
 
   return (
-    <section className="py-20 bg-gray-50" id="about">
+    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-gray-50'}`} id="about">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               About <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Me</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full"></div>
@@ -34,8 +36,8 @@ const AboutMe = () => {
             {/* Content */}
             <div className="space-y-8">
               {/* Personal Info */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <div className={`rounded-2xl p-8 shadow-lg transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
+                <h3 className={`text-2xl font-bold mb-6 flex items-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                   <FaUser className="mr-3 text-blue-500" />
                   Personal Information
                 </h3>
@@ -43,21 +45,21 @@ const AboutMe = () => {
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <span className="text-blue-500 font-semibold min-w-[80px]">Name:</span>
-                    <span className="text-gray-700">Jerald Malacaste Batal</span>
+                    <span className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Jerald Malacaste Batal</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <span className="text-blue-500 font-semibold min-w-[80px]">Role:</span>
-                    <span className="text-gray-700">Frontend Web Developer</span>
+                    <span className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>Frontend Web Developer</span>
                   </div>
                   <div className="flex items-center space-x-4">
                     <FaEnvelope className="text-blue-500" />
-                    <a href="mailto:btljrld22@gmail.com" className="text-gray-700 hover:text-blue-500 transition-colors">
+                    <a href="mailto:btljrld22@gmail.com" className={`hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                       btljrld22@gmail.com
                     </a>
                   </div>
                   <div className="flex items-center space-x-4">
                     <FaPhone className="text-blue-500" />
-                    <a href="tel:09462469596" className="text-gray-700 hover:text-blue-500 transition-colors">
+                    <a href="tel:09462469596" className={`hover:text-blue-500 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                       +63 946 246 9596
                     </a>
                   </div>
@@ -75,13 +77,13 @@ const AboutMe = () => {
               </div>
 
               {/* Introduction */}
-              <div className="bg-white rounded-2xl p-8 shadow-lg">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+              <div className={`rounded-2xl p-8 shadow-lg transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`}>
+                <h3 className={`text-2xl font-bold mb-6 flex items-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                   <FaCode className="mr-3 text-blue-500" />
                   My Story
                 </h3>
                 
-                <div className="space-y-4 text-gray-700 leading-relaxed">
+                <div className={`space-y-4 leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                   <p>
                     Hello! I`m Jerald, but you can call me JB, Jer, or Rald. I graduated with a degree in 
                     <strong className="text-blue-600"> Hotel and Restaurant Management</strong>, but I made a 

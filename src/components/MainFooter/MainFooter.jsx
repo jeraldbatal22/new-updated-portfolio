@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TextAnimation from "../Common/TextAnimation";
 import { FaGithub, FaLinkedin, FaInstagram, FaFacebook, FaEnvelope, FaPhone, FaMapMarkerAlt, FaPaperPlane, FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
 import emailjs from '@emailjs/browser';
 import { EMAILJS_CONFIG, getEmailParams } from '../../config/emailjs';
 
@@ -14,6 +15,7 @@ const MainFooter = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error', or null
   const [statusMessage, setStatusMessage] = useState('');
+  const { isDark } = useTheme();
 
   const handleInputChange = (e) => {
     setFormData({
@@ -84,7 +86,7 @@ const MainFooter = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white" id="footer">
+    <footer className={`transition-colors duration-300 ${isDark ? 'bg-slate-900 text-white' : 'bg-gray-100 text-gray-900'}`} id="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <TextAnimation>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -94,7 +96,7 @@ const MainFooter = () => {
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   Get In Touch
                 </h3>
-                <p className="text-gray-300 leading-relaxed">
+                <p className={`leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
                   I`m always interested in new opportunities and exciting projects. 
                   Let`s discuss how we can work together!
                 </p>
@@ -105,7 +107,7 @@ const MainFooter = () => {
                   <FaEnvelope className="text-blue-400 w-5 h-5" />
                   <a 
                     href="mailto:btljrld22@gmail.com" 
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className={`hover:text-white transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
                   >
                     btljrld22@gmail.com
                   </a>
@@ -114,20 +116,20 @@ const MainFooter = () => {
                   <FaPhone className="text-blue-400 w-5 h-5" />
                   <a 
                     href="tel:09462469596" 
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className={`hover:text-white transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}
                   >
                     +63 946 246 9596
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FaMapMarkerAlt className="text-blue-400 w-5 h-5" />
-                  <span className="text-gray-300">Philippines</span>
+                  <span className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Philippines</span>
                 </div>
               </div>
 
               {/* Social Links */}
               <div>
-                <h4 className="text-lg font-semibold mb-4">Follow Me</h4>
+                <h4 className={`text-lg font-semibold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Follow Me</h4>
                 <div className="flex space-x-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -135,10 +137,16 @@ const MainFooter = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-3 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors group"
+                      className={`p-3 rounded-lg transition-colors group ${
+                        isDark 
+                          ? 'bg-gray-800 hover:bg-gray-700' 
+                          : 'bg-gray-200 hover:bg-gray-300'
+                      }`}
                       title={social.label}
                     >
-                      <social.icon className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+                      <social.icon className={`w-5 h-5 group-hover:text-white transition-colors duration-300 ${
+                        isDark ? 'text-gray-400' : 'text-gray-600'
+                      }`} />
                     </a>
                   ))}
                 </div>
@@ -147,7 +155,7 @@ const MainFooter = () => {
 
             {/* Contact Form */}
             <div className="lg:col-span-2">
-              <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
+              <h3 className={`text-2xl font-bold mb-6 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Send Me a Message</h3>
               
               {/* Status Message */}
               {submitStatus && (
@@ -168,7 +176,7 @@ const MainFooter = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="name" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                       Name
                     </label>
                     <input
@@ -178,12 +186,16 @@ const MainFooter = () => {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                      className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300 ${
+                        isDark 
+                          ? 'bg-slate-800 border-slate-600 text-white placeholder-gray-400' 
+                          : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                      } border`}
                       placeholder="Your Name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                    <label htmlFor="email" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                       Email
                     </label>
                     <input
@@ -193,14 +205,18 @@ const MainFooter = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                      className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300 ${
+                        isDark 
+                          ? 'bg-slate-800 border-slate-600 text-white placeholder-gray-400' 
+                          : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                      } border`}
                       placeholder="your.email@example.com"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="subject" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                     Subject
                   </label>
                   <input
@@ -210,13 +226,17 @@ const MainFooter = () => {
                     value={formData.subject}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400"
+                    className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300 ${
+                      isDark 
+                        ? 'bg-slate-800 border-slate-600 text-white placeholder-gray-400' 
+                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                    } border`}
                     placeholder="What's this about?"
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="message" className={`block text-sm font-medium mb-2 transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>
                     Message
                   </label>
                   <textarea
@@ -226,7 +246,11 @@ const MainFooter = () => {
                     onChange={handleInputChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-white placeholder-gray-400 resize-none"
+                    className={`w-full px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-300 ${
+                      isDark 
+                        ? 'bg-slate-800 border-slate-600 text-white placeholder-gray-400' 
+                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
+                    } border`}
                     placeholder="Tell me about your project or just say hello!"
                   />
                 </div>
@@ -253,15 +277,15 @@ const MainFooter = () => {
           </div>
 
           {/* Footer Bottom */}
-          <div className="border-t border-gray-800 mt-16 pt-8">
+          <div className={`border-t mt-16 pt-8 transition-colors duration-300 ${isDark ? 'border-gray-800' : 'border-gray-300'}`}>
             <div className="flex flex-col md:flex-row justify-between items-center">
               <div className="text-center md:text-left mb-4 md:mb-0">
-                <p className="text-gray-400">
+                <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                   © 2024 Jerald Batal. All rights reserved.
                 </p>
               </div>
               <div className="text-center">
-                <p className="text-gray-400">
+                <p className={`transition-colors duration-300 ${isDark ? 'text-gray-400' : 'text-gray-600'}`}>
                   Built with ❤️ using React & Tailwind CSS
                 </p>
               </div>

@@ -1,6 +1,7 @@
 import TextAnimation from "../Common/TextAnimation";
 import Tooltip from "../UI/Tooltip";
 import { FaCode, FaDatabase, FaTools } from "react-icons/fa";
+import { useTheme } from "../../contexts/ThemeContext";
 
 const proficientSkills = [
   {
@@ -123,16 +124,18 @@ const exposureSkills = [
 ]
 
 const SKills = () => {
+  const { isDark } = useTheme();
+  
   return (
-    <section className="py-20 bg-white" id="skills">
+    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`} id="skills">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h2 className={`text-4xl md:text-5xl font-bold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
               My <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">Skills</span>
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto rounded-full mb-8"></div>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className={`text-lg max-w-3xl mx-auto leading-relaxed transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>
               I am a proficient Frontend web developer with a strong skill set in React JS. My expertise extends to crafting 
               engaging user interfaces using modern technologies. I also have experience with backend technologies and databases, 
               making me well-rounded in full-stack development.
@@ -142,11 +145,11 @@ const SKills = () => {
           {/* Proficient Skills */}
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center">
+              <h3 className={`text-3xl font-bold mb-4 flex items-center justify-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 <FaCode className="mr-3 text-blue-500" />
                 Proficient Technologies
               </h3>
-              <p className="text-gray-600">Technologies I work with confidently on a daily basis</p>
+              <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Technologies I work with confidently on a daily basis</p>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -158,7 +161,7 @@ const SKills = () => {
                     rel="noopener noreferrer"
                     className="group"
                   >
-                    <div className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-100">
+                    <div className={`rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'}`}>
                       <div className="flex flex-col items-center space-y-3">
                         <img 
                           src={skill.imageLink} 
@@ -166,7 +169,7 @@ const SKills = () => {
                           className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
                           loading="lazy"
                         />
-                        <span className="text-sm font-medium text-gray-700 text-center">{skill.title}</span>
+                        <span className={`text-sm font-medium text-center transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{skill.title}</span>
                         <span className="text-xs text-blue-500 font-semibold">{skill.category}</span>
                       </div>
                     </div>
@@ -179,11 +182,11 @@ const SKills = () => {
           {/* Exposure Skills */}
           <div>
             <div className="text-center mb-12">
-              <h3 className="text-3xl font-bold text-gray-900 mb-4 flex items-center justify-center">
+              <h3 className={`text-3xl font-bold mb-4 flex items-center justify-center transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>
                 <FaTools className="mr-3 text-purple-500" />
                 Additional Experience
               </h3>
-              <p className="text-gray-600">Technologies I have worked with and continue to explore</p>
+              <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Technologies I have worked with and continue to explore</p>
             </div>
             
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
@@ -195,7 +198,11 @@ const SKills = () => {
                     rel="noopener noreferrer"
                     className="group"
                   >
-                    <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border border-gray-200">
+                    <div className={`rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 border ${
+                      isDark 
+                        ? 'bg-gradient-to-br from-slate-600 to-slate-700 border-slate-500' 
+                        : 'bg-gradient-to-br from-gray-50 to-gray-100 border-gray-200'
+                    }`}>
                       <div className="flex flex-col items-center space-y-3">
                         <img 
                           src={skill.imageLink} 
@@ -203,7 +210,7 @@ const SKills = () => {
                           className="w-12 h-12 object-contain group-hover:scale-110 transition-transform duration-300"
                           loading="lazy"
                         />
-                        <span className="text-sm font-medium text-gray-700 text-center">{skill.title}</span>
+                        <span className={`text-sm font-medium text-center transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-700'}`}>{skill.title}</span>
                         <span className="text-xs text-purple-500 font-semibold">{skill.category}</span>
                       </div>
                     </div>
@@ -214,30 +221,34 @@ const SKills = () => {
           </div>
 
           {/* Skills Summary */}
-          <div className="mt-16 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+          <div className={`mt-16 rounded-2xl p-8 transition-colors duration-300 ${
+            isDark 
+              ? 'bg-gradient-to-r from-slate-700 to-slate-800' 
+              : 'bg-gradient-to-r from-blue-50 to-purple-50'
+          }`}>
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Choose Me?</h3>
+              <h3 className={`text-2xl font-bold mb-4 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Why Choose Me?</h3>
               <div className="grid md:grid-cols-3 gap-8">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <FaCode className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Clean Code</h4>
-                  <p className="text-gray-600">I write maintainable, scalable, and well-documented code following best practices.</p>
+                  <h4 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Clean Code</h4>
+                  <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>I write maintainable, scalable, and well-documented code following best practices.</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <FaDatabase className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Full-Stack Ready</h4>
-                  <p className="text-gray-600">Experience with both frontend and backend technologies for complete solutions.</p>
+                  <h4 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Full-Stack Ready</h4>
+                  <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Experience with both frontend and backend technologies for complete solutions.</p>
                 </div>
                 <div className="text-center">
                   <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
                     <FaTools className="w-8 h-8 text-white" />
                   </div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Modern Tools</h4>
-                  <p className="text-gray-600">Proficient with the latest development tools and deployment platforms.</p>
+                  <h4 className={`text-lg font-semibold mb-2 transition-colors duration-300 ${isDark ? 'text-white' : 'text-gray-900'}`}>Modern Tools</h4>
+                  <p className={`transition-colors duration-300 ${isDark ? 'text-gray-300' : 'text-gray-600'}`}>Proficient with the latest development tools and deployment platforms.</p>
                 </div>
               </div>
             </div>
