@@ -84,22 +84,20 @@ const MainHeader = () => {
         ? `${isDark ? 'bg-slate-900/95' : 'bg-white/95'} backdrop-blur-md shadow-lg` 
         : 'bg-transparent'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl  md:py-3  mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link 
             to="hero" 
             smooth={true} 
             duration={1000}
-            className={`text-2xl font-bold transition-colors duration-300 ${
+            className={`cursor-pointer text-2xl font-bold transition-colors duration-300 ${
               isScrolled 
                 ? `${isDark ? 'text-white hover:text-blue-400' : 'text-gray-900 hover:text-blue-600'}` 
                 : 'text-white hover:text-blue-400'
             }`}
           >
-            <span className="bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
-              JeraldDev
-            </span>
+            <img src="/favicon.ico" alt="logo" className="md:w-[120px] w-[80px]"/>
           </Link>
 
           {/* Desktop Navigation */}
