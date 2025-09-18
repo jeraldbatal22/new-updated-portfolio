@@ -127,7 +127,7 @@ const SKills = () => {
   const { isDark } = useTheme();
   
   return (
-    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`} id="skills">
+    <section className={`py-32 transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`} id="skills">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">

@@ -69,7 +69,7 @@ const Experience = () => {
   const { isDark } = useTheme();
   
   return (
-    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`} id="experience">
+    <section className={`py-32 transition-colors duration-300 ${isDark ? 'bg-slate-800' : 'bg-white'}`} id="experience">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">
@@ -124,7 +124,8 @@ const Experience = () => {
                 }`}></div>
 
                 {/* Experience Card */}
-                <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}>
+                {/* <div className={`ml-12 md:ml-0 ${index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'}`}> */}
+                <div className={`ml-12 md:ml-0`}>
                   <div className={`rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105 p-8 ${isDark ? 'bg-slate-700 border-slate-600' : 'bg-white border-gray-100'} border`}>
                     {/* Header */}
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">

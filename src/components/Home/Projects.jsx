@@ -155,7 +155,7 @@ const Projects = () => {
   const stackOptions = ["all", "featured", "react", "javascript", "html", "rails"];
 
   return (
-    <section className={`py-20 transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-gray-50'}`} id="projects">
+    <section className={`pt-32 transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-gray-50'}`} id="projects">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <TextAnimation>
           <div className="text-center mb-16">
@@ -297,13 +297,12 @@ const Projects = () => {
           </div>
 
           {/* Call to Action */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-16  py-20">
             <div className={`rounded-2xl p-8 transition-colors duration-300 ${
               isDark 
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white' 
                 : 'bg-gradient-to-r from-blue-50 to-purple-50 text-gray-900'
             }`}>
-              <h3 className="text-2xl font-bold mb-4">Interested in Working Together?</h3>
               <p className={`text-lg mb-6 transition-colors duration-300 ${
                 isDark ? 'opacity-90' : 'opacity-80'
               }`}>

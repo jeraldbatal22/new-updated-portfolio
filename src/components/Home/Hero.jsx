@@ -153,6 +153,15 @@ const Hero = () => {
         </animated.div>
       </div>
 
+      <div className=" absolute bottom-0 md:left-1/2 transform md:-translate-x-3/4 md:right-auto right-[60%] animate-pulse">
+        <img 
+          src="./images/jerald-no-bg.png" 
+          alt="Jerald Batal" 
+          className=" mx-auto rounded-2xl transform group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </div>
+
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className={`w-6 h-10 border-2 rounded-full flex justify-center transition-colors duration-500 ${
