@@ -27,7 +27,7 @@ export const resumeData = {
     {
       title: "Frontend Web Developer",
       company: "Highly Succeed",
-      period: "Mar 2022 – Jun 07 2025 (2 years 6 months)",
+      period: "Mar 2022 – Jun 07 2025 (3 years 3 months)",
       responsibilities: [
         "Maintained and improved multiple React-based applications: Doctor Web App, Patient Web App, Backoffice Web Portal, Ecommerce Web Portal.",
         "Spearheaded ongoing maintenance, bug fixes, and feature upgrades.",
