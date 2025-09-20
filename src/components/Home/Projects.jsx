@@ -136,8 +136,17 @@ const projects = [
     liveUrlLink: "https://easy-mart-clone.vercel.app/",
     sourceCodeLink: "https://github.com/jeraldbatal22/easy-mart-clone",
     stack: "Next Js",
-    description: "EasyMart- E-Commerce - 100% FREE (Online Store UI/UX Design - Complete Responsive Website) (Community)",
-    featured: false
+    description: "Work In Progress. A simple e-commerce website clone with product listings, shopping cart, and modern UI built using Next.js.",
+    featured: true
+  },
+  {
+    title: "Streaming Series and Movies",
+    image: "/images/projects/streaming-series-and-movies.png",
+    liveUrlLink: "https://streaming-series-movies.vercel.app/",
+    sourceCodeLink: "https://github.com/jeraldbatal22/streaming-series-movies",
+    stack: "Next Js",
+    description: "Work In Progress. A web app for browsing and streaming your favorite series and movies, built with Next.js and a modern UI.",
+    featured: true
   },
 ]
 
@@ -152,7 +161,7 @@ const Projects = () => {
     return project.stack.toLowerCase().includes(filter.toLowerCase());
   });
 
-  const stackOptions = ["all", "featured", "react", "javascript", "html", "rails"];
+  const stackOptions = ["all", "featured", "react", "javascript", "html", "rails", "next"];
 
   return (
     <section className={`pt-32 transition-colors duration-300 ${isDark ? 'bg-slate-900' : 'bg-gray-50'}`} id="projects">
